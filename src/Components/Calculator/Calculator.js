@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { BUTTONS } from './BtnConfig';
+import { BTN_ACTIONS, BUTTONS } from './BtnConfig';
 import './Calculator.css';
 
 const Calculator = () => {
@@ -13,6 +13,14 @@ const Calculator = () => {
         btns.forEach(e => e.style.height = e.offsetWidth + 'px')
      
     }, [])
+
+    const btnClick = (item) =>{
+        console.log(item);
+
+        const expDiv = expRef.current;
+
+        if (item.action === BTN_ACTIONS.THEME) document.body.classList.toggle('dark');
+    }
     
 
 
@@ -27,9 +35,15 @@ const Calculator = () => {
             <div ref={btnsRef} className="calculator__btns">
                 {
                     BUTTONS.map((item, index) =>(
-                        <button key={index} className={item.class}>
-                            {item.display}
+                        <button 
+                           key={index}
+                           className={item.class}
+                           onClick = {() => btnClick(item)}
+                           >
+                           
 
+
+                            {item.display}
                         </button>
                     ))
                 }

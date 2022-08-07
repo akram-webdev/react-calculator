@@ -88,7 +88,7 @@ export const BUTTONS = [
      },
      {
         display: '☀️',
-        action: BTN_ACTIONS.ADD,
+        action: BTN_ACTIONS.THEME,
         class: 'btn_op'
      },
      {
