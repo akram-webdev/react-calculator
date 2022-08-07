@@ -9,22 +9,22 @@ export const BUTTONS = [
      {
         display: 'C',
         action: BTN_ACTIONS.DELETE,
-        class: 'btn_op'
+        class: 'btn__op'
      },
      {
         display: '(',
         action: BTN_ACTIONS.ADD,
-        class: 'btn_op'
+        class: 'btn__op'
      },
      {
         display: ')',
         action: BTN_ACTIONS.ADD,
-        class: 'btn_op'
+        class: 'btn__op'
      },
      {
         display: '/',
         action: BTN_ACTIONS.ADD,
-        class: 'btn_op'
+        class: 'btn__op'
      },
      {
         display: '7',
@@ -44,7 +44,7 @@ export const BUTTONS = [
      {
         display: 'x',
         action: BTN_ACTIONS.ADD,
-        class: 'btn_op'
+        class: 'btn__op'
      },
      {
         display: '4',
@@ -62,9 +62,9 @@ export const BUTTONS = [
         class: 'btn_op'
      },
      {
-        display: '_',
+        display: '__',
         action: BTN_ACTIONS.ADD,
-        class: 'btn_op'
+        class: 'btn__op'
      },
      {
         display: '1',
@@ -84,7 +84,7 @@ export const BUTTONS = [
      {
         display: '+',
         action: BTN_ACTIONS.ADD,
-        class: 'btn_op'
+        class: 'btn__op'
      },
      {
         display: '☀️',
@@ -93,11 +93,6 @@ export const BUTTONS = [
      },
      {
         display: '0',
-        action: BTN_ACTIONS.ADD,
-        class: 'btn_op'
-     },
-     {
-        display: '',
         action: BTN_ACTIONS.ADD,
         class: 'btn_op'
      },
@@ -111,4 +106,5 @@ export const BUTTONS = [
         action: BTN_ACTIONS.ADD,
         class: 'btn_op'
      },
+    
     ];

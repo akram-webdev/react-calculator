@@ -6,6 +6,9 @@ const Calculator = () => {
     return (
         <div className='calculator'>
             <div className='calculator__result'>
+                <div className="calculator__result__exp">
+                    11212122
+                </div>
                 <div className="calculator__result__exp"></div>
             </div>
             <div className="calculator__btns">

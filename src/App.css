@@ -33,7 +33,7 @@ body {
 
   display: flex;
   justify-content: center;
-  padding-top: 100px;
+  padding-top: 10px;
 }
 
 button {
@@ -42,7 +42,7 @@ button {
 
 }
 
-@media only screen and (max-widthL: 800px) {
+@media only screen and (max-width: 800px) {
   body {
     display: unset;
     padding-top: 0;
