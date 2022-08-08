@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { BTN_ACTIONS, BUTTONS } from './BtnConfig';
 import './Calculator.css';
 
@@ -6,6 +6,8 @@ const Calculator = () => {
 
     const btnsRef = useRef(null);
     const expRef = useRef(null);
+
+    const [expression, setExpression] = useState('')
 
     useEffect(() => {
         const btns = Array.from(btnsRef.current.querySelectorAll('button'));
@@ -15,7 +17,7 @@ const Calculator = () => {
     }, [])
 
     const btnClick = (item) => {
-        console.log(item);
+
 
         const expDiv = expRef.current;
 
@@ -23,10 +25,48 @@ const Calculator = () => {
 
         if (item.action === BTN_ACTIONS.ADD) {
             addAdminSpan(item.display);
+
+            const operation = item.display !== 'x' ? item.display : '*';
+            setExpression(expression + operation)
         }
-        if(item.action === BTN_ACTIONS.DELETE) {
+        if (item.action === BTN_ACTIONS.DELETE) {
             expDiv.parentNode.querySelector('div:last-child').innerHTML = '';
             expDiv.innerHTML = '';
+
+            setExpression('');
+        }
+
+        if (item.action === BTN_ACTIONS.CALC) {
+            if (expression.trim().length <= 0)
+                return;
+
+            expDiv.parentNode.querySelector('div:last-child').remove();
+
+            const cloneNode = expDiv.cloneNode(true)
+            expDiv.parentNode.appendChild(cloneNode)
+
+            const transform = `translateY(${-(expDiv.offsetHeight + 10) + 'px' })
+            scale(0.4)`;
+
+            try{
+                let res = eval(expression);
+
+                setExpression(res.toString())
+                setTimeout(() => {
+                    cloneNode.style.transform = transform;
+                    expDiv.innerHTML = '';
+                    addAdminSpan(Math.floor(res * 100000000) / 100000000);
+                }, 200);
+            }  catch {
+                setTimeout(() => {
+                    cloneNode.style.transform = transform;
+                    cloneNode.innerHTML = 'Syntax err';
+
+                    
+                }, 200);
+            } finally{
+                console.log('project complete')
+            }
         }
     }
 
@@ -41,7 +81,7 @@ const Calculator = () => {
         const width = span.offsetWidth + 'px';
         span.style.width = '0'
 
-     
+
 
         setTimeout(() => {
             span.style.opacity = '1';

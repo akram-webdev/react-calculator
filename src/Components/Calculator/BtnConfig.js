@@ -103,7 +103,7 @@ export const BUTTONS = [
      },
      {
         display: '=',
-        action: BTN_ACTIONS.ADD,
+        action: BTN_ACTIONS.CALC,
         class: 'btn_op'
      },
     
