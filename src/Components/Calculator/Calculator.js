@@ -24,6 +24,10 @@ const Calculator = () => {
         if (item.action === BTN_ACTIONS.ADD) {
             addAdminSpan(item.display);
         }
+        if(item.action === BTN_ACTIONS.DELETE) {
+            expDiv.parentNode.querySelector('div:last-child').innerHTML = '';
+            expDiv.innerHTML = '';
+        }
     }
 
     const addAdminSpan = (content) => {
@@ -37,10 +41,7 @@ const Calculator = () => {
         const width = span.offsetWidth + 'px';
         span.style.width = '0'
 
-        expDiv.parentNode.querySelector('div:last-child').style.transform = `
-           translateY(${-expDiv.offsetHeight + 'px'}) scale(0.4)
-        
-        `;
+     
 
         setTimeout(() => {
             span.style.opacity = '1';
