@@ -1,3 +1,5 @@
+import Toggle from './Toggle';
+
 export const BTN_ACTIONS ={
     ADD: 'ADD',
     THEME: 'THEME',
@@ -87,7 +89,7 @@ export const BUTTONS = [
         class: 'btn__op'
      },
      {
-        display: '☀️',
+        display: <Toggle></Toggle>,
         action: BTN_ACTIONS.THEME,
         class: 'btn_op'
      },
