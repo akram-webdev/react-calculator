@@ -62,7 +62,7 @@ export const BUTTONS = [
         class: 'btn_op'
      },
      {
-        display: '__',
+        display: '-',
         action: BTN_ACTIONS.ADD,
         class: 'btn__op'
      },
